@@ -1,0 +1,4 @@
+# AssembleCloud.srv
+
+---
+sensor_msgs/PointCloud2 assembled_cloud

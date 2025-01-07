@@ -1,0 +1,11 @@
+# The goal definition (equivalent to the service request)
+bool start
+
+---
+# The result definition (equivalent to the service response)
+bool success
+string message
+
+---
+# The feedback definition (sent periodically during execution)
+float32 progress
