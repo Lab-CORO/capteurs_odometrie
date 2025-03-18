@@ -277,7 +277,7 @@ private:
         t.transform.rotation.z = rot.z();
         t.transform.rotation.w = rot.w();
 
-        tf_broadcaster_->sendTransform(t);
+        // tf_broadcaster_->sendTransform(t);
       }
       else
       {
