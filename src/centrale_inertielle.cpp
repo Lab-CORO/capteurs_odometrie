@@ -254,31 +254,31 @@ private:
       imu_pub_->publish(imu_msg_);
 
       // 2) If we have re-oriented IMU data, publish that as well
-      // if (got_imu_data_ && fixed_imu_data_)
-      // {
-      //   fixed_imu_msg_.header.stamp = this->now();
-      //   fixed_imu_msg_.header.frame_id = "imu_frame";
-      //   fixed_imu_pub_->publish(fixed_imu_msg_);
+      if (got_imu_data_ && fixed_imu_data_)
+      {
+        fixed_imu_msg_.header.stamp = this->now();
+        fixed_imu_msg_.header.frame_id = "imu_frame";
+        fixed_imu_pub_->publish(fixed_imu_msg_);
 
-      //   // Broadcast a transform from "r_robot" to "imu_frame" (if desired)
-      //   geometry_msgs::msg::TransformStamped t;
-      //   t.header.stamp = this->now();
-      //   t.header.frame_id = "r_robot";
-      //   t.child_frame_id  = "imu_frame";
-      //   // Just an identity transform in translation
-      //   t.transform.translation.x = 0.0;
-      //   t.transform.translation.y = 0.0;
-      //   t.transform.translation.z = 0.0;
-      //   // No rotation in this example, but you could embed your rolling/pitching
-      //   tf2::Quaternion rot;
-      //   rot.setRPY(0, 0, 0);
-      //   t.transform.rotation.x = rot.x();
-      //   t.transform.rotation.y = rot.y();
-      //   t.transform.rotation.z = rot.z();
-      //   t.transform.rotation.w = rot.w();
+        // Broadcast a transform from "r_robot" to "imu_frame" (if desired)
+        // geometry_msgs::msg::TransformStamped t;
+        // t.header.stamp = this->now();
+        // t.header.frame_id = "r_robot";
+        // t.child_frame_id  = "imu_frame";
+        // // Just an identity transform in translation
+        // t.transform.translation.x = 0.0;
+        // t.transform.translation.y = 0.0;
+        // t.transform.translation.z = 0.0;
+        // // No rotation in this example, but you could embed your rolling/pitching
+        // tf2::Quaternion rot;
+        // rot.setRPY(0, 0, 0);
+        // t.transform.rotation.x = rot.x();
+        // t.transform.rotation.y = rot.y();
+        // t.transform.rotation.z = rot.z();
+        // t.transform.rotation.w = rot.w();
 
-      //   // tf_broadcaster_->sendTransform(t);
-      // }
+        // tf_broadcaster_->sendTransform(t);
+      }
       else
       {
         RCLCPP_INFO_THROTTLE(
